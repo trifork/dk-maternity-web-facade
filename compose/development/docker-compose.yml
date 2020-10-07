@@ -1,0 +1,28 @@
+version: '3.6'
+# To create this run:
+# > docker network create maternity_net
+networks:
+  maternity_net:
+    external: true
+
+services:
+  maternity-web-facade:
+    build: ../..
+
+    networks:
+      - maternity_net
+
+    # Expose port host 8789 for debugging, and 8085 for service
+    ports:
+      - "8789:8787"
+      - "8085:8080"
+
+    environment:
+      - LOG_MAX_FILE_SIZE=10MB
+      - LOG_MAX_BACKUP_INDEX=5
+
+
+    volumes:
+      # Logging
+      - ./log:/pack/wildfly8/standalone/log/
+
