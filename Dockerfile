@@ -13,5 +13,4 @@ RUN echo '.*' > /pack/wildfly8/modules/system/layers/base/dk/sds/nsp/accesshandl
 COPY target/*.war /pack/wildfly8/standalone/deployments/
 
 RUN sed -i s'/<servlet-container name="default">/<servlet-container name="default" eager-filter-initialization="true">/' /pack/wildfly8/standalone/configuration/standalone.xml
-RUN sed -i s'/<bean-validation enabled="true"\/>/<bean-validation enabled="false"\/>/' /pack/wildfly8/standalone/configuration/standalone.xml
 
