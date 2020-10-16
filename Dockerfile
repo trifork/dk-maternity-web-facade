@@ -1,16 +1,14 @@
 FROM registry.nspop.dk/platform/nsp:1
 
-# Default OIOSAML configuration folder, oiosaml.home will be pack/OIOSAML_CONFIG_FOLDER
-ENV JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
-
 # Skip access handler
 RUN echo '.*' > /pack/wildfly8/modules/system/layers/base/dk/sds/nsp/accesshandler/main/handler.skip
 
-# Copy configuration files
-#COPY etc/wildfly /pack/wildfly8/
+# Declare local module used for configuration files
+#COPY ./etc/ /pack/wildfly8/modules/dk/sds/nsp/maternity/facade-web/main/
 
 # Copy the war file to the deployment directory
 COPY target/*.war /pack/wildfly8/standalone/deployments/
 
+# Eager initialization of servlet filters - used for OIOSAML
 RUN sed -i s'/<servlet-container name="default">/<servlet-container name="default" eager-filter-initialization="true">/' /pack/wildfly8/standalone/configuration/standalone.xml
 

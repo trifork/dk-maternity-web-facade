@@ -20,6 +20,7 @@ services:
     environment:
       - LOG_MAX_FILE_SIZE=10MB
       - LOG_MAX_BACKUP_INDEX=5
+      - JAVA_OPTS=$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
 
 
     volumes:
