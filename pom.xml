@@ -29,7 +29,7 @@
     <dependencies>
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
-            <artifactId>maternity-facade-api</artifactId>
+            <artifactId>maternity-data-facade-api</artifactId>
             <version>dev</version>
         </dependency>
     </dependencies>
