@@ -11,8 +11,16 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <feedback-service>maternity-feedback-service-impl</feedback-service>
     </properties>
-
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <feedback-service>maternity-feedback-service-stub</feedback-service>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
@@ -34,6 +42,11 @@
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>maternity-feedback-api</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>${feedback-service}</artifactId>
             <version>dev</version>
         </dependency>
 
