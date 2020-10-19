@@ -27,3 +27,5 @@ services:
       # Logging
       - ./log:/pack/wildfly8/standalone/log/
 
+      # Log4j configuration
+      - ../configuration/*.*:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/

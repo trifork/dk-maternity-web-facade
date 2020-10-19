@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false">
+
+    <!-- ================================= -->
+    <!-- Preserve messages in a local file -->
+    <!-- ================================= -->
+
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+        <errorHandler class="org.apache.log4j.helpers.OnlyOnceErrorHandler"/>
+        <param name="File" value="${jboss.server.log.dir}/maternity.log"/>
+        <param name="Append" value="true"/>
+
+        <param name="MaxFileSize" value="${dk.nsp.log.MaxFileSize}"/>
+        <param name="MaxBackupIndex" value="${dk.nsp.log.MaxBackupIndex}"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="timestamp=&quot;%d&quot; threadId=&quot;%t&quot; priority=&quot;%p&quot; category=&quot;%c&quot; requestId=&quot;%X{RequestId}&quot; message=&quot;%m&quot;%n"/>
+        </layout>
+    </appender>
+
+    <appender name="OIOSAML_FILE"
+              class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${jboss.server.log.dir}/oiosaml-sp.log" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="3" />
+        <param name="Threshold" value="DEBUG" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <!-- The debug pattern: Date Priority [Thread] [LoggerName] Message -->
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH🇲🇲ss,SSS}] [%-5p] [%t] [%c] %m%n" />
+        </layout>
+    </appender>
+
+    <!-- ========== -->
+    <!-- Categories -->
+    <!-- ========== -->
+
+    <category name="dk.sds.nsp">
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="ca.uhn">
+        <priority value="ERROR"/>
+    </category>
+
+    <!-- ======= -->
+    <!-- Loggers -->
+    <!-- ======= -->
+
+    <logger name="dk.itst.oiosaml">
+        <level value="debug" />
+        <appender-ref ref="OIOSAML_FILE"/>
+    </logger>
+
+    <logger name="org.opensaml">
+        <level value="warn" />
+        <appender-ref ref="OIOSAML_FILE"/>
+    </logger>
+
+    <!-- ======================= -->
+    <!-- Setup the Root category -->
+    <!-- ======================= -->
+
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</log4j:configuration>

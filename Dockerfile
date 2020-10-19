@@ -4,7 +4,7 @@ FROM registry.nspop.dk/platform/nsp:1
 RUN echo '.*' > /pack/wildfly8/modules/system/layers/base/dk/sds/nsp/accesshandler/main/handler.skip
 
 # Declare local module used for configuration files
-#COPY ./etc/ /pack/wildfly8/modules/dk/sds/nsp/maternity/facade-web/main/
+COPY ./etc/ /pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/
 
 # Copy the war file to the deployment directory
 COPY target/*.war /pack/wildfly8/standalone/deployments/
