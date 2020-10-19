@@ -28,4 +28,4 @@ services:
       - ./log:/pack/wildfly8/standalone/log/
 
       # Log4j configuration
-      - ../configuration/*.*:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/
+      - ../configuration/log4j-maternity.xml:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/log4j-maternity.xml
