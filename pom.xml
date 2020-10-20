@@ -19,7 +19,7 @@
         <profile>
             <id>dev</id>
             <properties>
-                <data-card-service>maternity-data-service-stub</data-card-service>
+                <data-service>maternity-data-service-stub</data-service>
                 <feedback-service>maternity-feedback-service-stub</feedback-service>
             </properties>
         </profile>
