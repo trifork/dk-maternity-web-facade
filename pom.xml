@@ -49,7 +49,11 @@
             <artifactId>${feedback-service}</artifactId>
             <version>dev</version>
         </dependency>
-
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>saml-auth</artifactId>
+            <version>dev</version>
+        </dependency>
     </dependencies>
 
 
