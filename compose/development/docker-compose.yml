@@ -20,7 +20,8 @@ services:
     environment:
       - LOG_MAX_FILE_SIZE=10MB
       - LOG_MAX_BACKUP_INDEX=5
-      - JAVA_OPTS=$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
+      # Set oiosaml.home + open debug socket
+      - JAVA_OPTS=$JAVA_OPTS -Doiosaml.home=/pack/oiosaml -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
 
 
     volumes:
@@ -32,3 +33,5 @@ services:
       - ../configuration/log4j-nspslalog.properties:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/log4j-nspslalog.properties
       # App properties
       - ../configuration/maternity-facade.properties:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/maternity-facade.properties
+      # OIOSaml.java to oiosaml.home
+      - ../configuration/oiosaml/localhost-development:/pack/oiosaml
