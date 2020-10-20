@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <data-facade-service>maternity-data-service-impl</data-facade-service>
+        <data-service>maternity-data-service-impl</data-service>
         <feedback-service>maternity-feedback-service-impl</feedback-service>
     </properties>
 
@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
-            <artifactId>${data-facade-service}</artifactId>
+            <artifactId>${data-service}</artifactId>
             <version>dev</version>
         </dependency>
         <dependency>
