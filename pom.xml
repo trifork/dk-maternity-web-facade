@@ -11,16 +11,20 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <data-facade-service>maternity-data-facade-service-impl</data-facade-service>
         <feedback-service>maternity-feedback-service-impl</feedback-service>
     </properties>
+
     <profiles>
         <profile>
             <id>dev</id>
             <properties>
+                <data-card-service>maternity-data-card-service-stub</data-card-service>
                 <feedback-service>maternity-feedback-service-stub</feedback-service>
             </properties>
         </profile>
     </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -39,6 +43,11 @@
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>maternity-data-facade-api</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>${data-facade-service}</artifactId>
             <version>dev</version>
         </dependency>
         <dependency>
