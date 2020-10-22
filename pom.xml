@@ -92,6 +92,16 @@
         <!-- Maternity Auth -->
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>maternity-configuration-api</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>${configuration-service}</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>saml-auth</artifactId>
             <version>dev</version>
         </dependency>
