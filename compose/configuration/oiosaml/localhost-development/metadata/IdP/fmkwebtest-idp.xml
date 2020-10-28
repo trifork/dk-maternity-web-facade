@@ -1,4 +1,4 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="http://fmkwebtest.trifork.netic.dk/idp/saml2/idp/metadata.php">
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://fmkwebtest.trifork.netic.dk/idp/saml2/idp/metadata.php">
 <IDPSSODescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 <KeyDescriptor>
 <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -7,9 +7,9 @@
 </ds:X509Data>
 </ds:KeyInfo>
 </KeyDescriptor>
-<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://fmkwebtest.trifork.netic.dk/idp/saml2/idp/SingleLogoutService.php"/>
+<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fmkwebtest.trifork.netic.dk/idp/saml2/idp/SingleLogoutService.php"/>
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</NameIDFormat>
-<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://fmkwebtest.trifork.netic.dk/idp/saml2/idp/SSOService.php"/>
+<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fmkwebtest.trifork.netic.dk/idp/saml2/idp/SSOService.php"/>
 </IDPSSODescriptor>
 <Organization>
 <OrganizationName xml:lang="en">Type in a name for this entity</OrganizationName>
