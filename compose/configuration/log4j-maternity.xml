@@ -9,7 +9,7 @@
 
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
         <errorHandler class="org.apache.log4j.helpers.OnlyOnceErrorHandler"/>
-        <param name="File" value="${jboss.server.log.dir}/maternity.log"/>
+        <param name="File" value="${jboss.server.log.dir}/maternity-web-facade.log"/>
         <param name="Append" value="true"/>
 
         <param name="MaxFileSize" value="${dk.nsp.log.MaxFileSize}"/>
