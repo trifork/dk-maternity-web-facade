@@ -13,6 +13,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <data-service>maternity-data-service-impl</data-service>
         <feedback-service>maternity-feedback-service-impl</feedback-service>
+        <configuration-service>maternity-configuration-service-impl</configuration-service>
     </properties>
 
     <profiles>
@@ -21,6 +22,7 @@
             <properties>
                 <data-service>maternity-data-service-stub</data-service>
                 <feedback-service>maternity-feedback-service-stub</feedback-service>
+                <configuration-service>maternity-configuration-service-stub</configuration-service>
             </properties>
         </profile>
     </profiles>
@@ -42,6 +44,18 @@
     <dependencies>
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>common</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>cfg</artifactId>
+            <version>dev</version>
+        </dependency>
+
+        <!--Maternity Data Api-->
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>maternity-data-api</artifactId>
             <version>dev</version>
         </dependency>
@@ -50,6 +64,20 @@
             <artifactId>${data-service}</artifactId>
             <version>dev</version>
         </dependency>
+
+        <!--Maternity Configuration Api-->
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>maternity-configuration-api</artifactId>
+            <version>dev</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.sds.nsp.maternity</groupId>
+            <artifactId>${configuration-service}</artifactId>
+            <version>dev</version>
+        </dependency>
+
+        <!--Maternity Feedback Api-->
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>maternity-feedback-api</artifactId>
@@ -57,14 +85,11 @@
         </dependency>
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
-            <artifactId>cfg</artifactId>
-            <version>dev</version>
-        </dependency>
-        <dependency>
-            <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>${feedback-service}</artifactId>
             <version>dev</version>
         </dependency>
+
+        <!-- Maternity Auth -->
         <dependency>
             <groupId>dk.sds.nsp.maternity</groupId>
             <artifactId>saml-auth</artifactId>
