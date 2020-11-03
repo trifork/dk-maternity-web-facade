@@ -26,12 +26,12 @@ services:
 
     volumes:
       # Logging
-      - ./log:/pack/wildfly8/standalone/log/
+      - ./log:/pack/wildfly/standalone/log/
       # Log4j configuration
-      - ../configuration/log4j-maternity.xml:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/log4j-maternity.xml
+      - ../configuration/log4j-maternity.xml:/pack/wildfly/modules/dk/sds/nsp/maternity/cfg/main/log4j-maternity.xml
       # Slalog configuration
-      - ../configuration/log4j-nspslalog.properties:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/log4j-nspslalog.properties
+      - ../configuration/log4j-nspslalog.properties:/pack/wildfly/modules/dk/sds/nsp/maternity/cfg/main/log4j-nspslalog.properties
       # App properties
-      - ../configuration/maternity-facade.properties:/pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/maternity-facade.properties
+      - ../configuration/maternity-facade.properties:/pack/wildfly/modules/dk/sds/nsp/maternity/cfg/main/maternity-facade.properties
       # OIOSaml.java to oiosaml.home
       - ../configuration/oiosaml/localhost-development:/pack/oiosaml

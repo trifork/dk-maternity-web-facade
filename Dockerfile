@@ -1,14 +1,19 @@
-FROM registry.nspop.dk/platform/nsp:1
+FROM registry.nspop.dk/platform/nsp:3.0.0-wildfly21.rc1
 
 # Skip access handler
-RUN echo '.*' > /pack/wildfly8/modules/system/layers/base/dk/sds/nsp/accesshandler/main/handler.skip
+RUN echo '.*' > /pack/wildfly/modules/system/layers/base/dk/sds/nsp/accesshandler/main/handler.skip
 
 # Declare local module used for configuration files
-COPY ./etc/ /pack/wildfly8/modules/dk/sds/nsp/maternity/cfg/main/
+RUN mkdir -p /pack/wildfly/modules/dk/sds/nsp/maternity/cfg/main/
+COPY ./etc/module.xml /pack/wildfly/modules/dk/sds/nsp/maternity/cfg/main/
+
+#Copy missing jar
+RUN wget
+COPY ./etc/commons-pool-1.6.jar /pack/wildfly/modules/system/layers/base/org/apache/commons/pool/main/
 
 # Copy the war file to the deployment directory
-COPY target/*.war /pack/wildfly8/standalone/deployments/
+COPY target/*.war /pack/wildfly/standalone/deployments/
 
 # Eager initialization of servlet filters - used for OIOSAML
-RUN sed -i s'/<servlet-container name="default">/<servlet-container name="default" eager-filter-initialization="true">/' /pack/wildfly8/standalone/configuration/standalone.xml
+RUN sed -i s'/<servlet-container name="default">/<servlet-container name="default" eager-filter-initialization="true">/' /pack/wildfly/standalone/configuration/standalone.xml
 
