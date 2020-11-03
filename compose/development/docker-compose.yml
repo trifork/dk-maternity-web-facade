@@ -22,7 +22,7 @@ services:
       - LOG_MAX_BACKUP_INDEX=5
       # Set oiosaml.home + open debug socket
       - JAVA_OPTS=$JAVA_OPTS -Doiosaml.home=/pack/oiosaml -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
-
+      - maternity_application_mode=dev #in this application mode we invent a fake session if none exists
 
     volumes:
       # Logging
